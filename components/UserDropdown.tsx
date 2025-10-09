@@ -16,7 +16,7 @@ import { LogOut } from 'lucide-react'
 import NavItems from './NavItems'
 import { signOut } from '@/lib/actions/auth.actions'
 
-const UserDropdown = ({ user }: { user: User }) => {
+const UserDropdown = ({ user, sinitialStocks }: { user: User, initialStocks: StockWithWatchlistStatus[] }) => {
 
     const router = useRouter()
 
@@ -71,15 +71,9 @@ const UserDropdown = ({ user }: { user: User }) => {
                 <DropdownMenuSeparator className='bg-gray-600 hidden sm:block' />
 
                 <nav className='sm:hidden'>
-                    <NavItems />
+                    <NavItems initialStocks={initialStocks} />
                 </nav>
 
-                {/* <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Team</DropdownMenuItem>
-                <DropdownMenuItem>Subscription</DropdownMenuItem> */}
             </DropdownMenuContent>
         </DropdownMenu>
     )
